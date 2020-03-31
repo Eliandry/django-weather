@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h1>Погода в вашем городе</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="city">Город</label>
+        {{form.name}}
+        <input type="submit"  name="send" value="Узнать">
+    </form>
+</div>
+    <h2>История запросов</h2>
+    {% for info in all_info %}
+        <div>
+            <b>Город: </b>{{ info.city }}<br>
+            <b>Температура: </b>{{ info.temp }}<sup>o</sup><br>
+            <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="Фото погоды">
+        </div>
+    {% endfor %}
+</body>
+</html>
