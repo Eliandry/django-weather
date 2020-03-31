@@ -20,6 +20,7 @@
             <b>Город: </b>{{ info.city }}<br>
             <b>Температура: </b>{{ info.temp }}<sup>o</sup><br>
             <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="Фото погоды">
+            <td><a href="delete/{{info.city}}">Удалить</a></td>
         </div>
     {% endfor %}
 </body>

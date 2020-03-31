@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect, HttpResponseNotFound
 from .models import City
 from .forms import CityForm
 import requests
@@ -21,3 +22,10 @@ def index(request):
         all_cities.append(info)
     context={'all_info':all_cities,'form':form}
     return render(request ,'weather/index.html',context)
+def delete(request, name):
+    try:
+        city = City.objects.get(name=name)
+        city.delete()
+        return HttpResponseRedirect("/")
+    except City.DoesNotExist:
+        return HttpResponseNotFound("<h2>Person not found</h2>")

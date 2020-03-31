@@ -20,4 +20,5 @@ from weatherApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
+    path('delete/<str:name>/', views.delete),
 ]
