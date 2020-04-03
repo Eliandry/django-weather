@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
     path('delete/<str:name>/', views.delete),
+    path('create/',views.create)
 ]

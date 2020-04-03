@@ -6,11 +6,8 @@ import requests
 def index(request):
     appId = 'f606492804b0b0ce2bbacda73575d621'
     url = 'https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appId=' + appId
-    if request.method == "POST":
-        form=CityForm(request.POST)
-        form.save()
-    form = CityForm()
     cities = City.objects.all()
+    form = CityForm()
     all_cities=[]
     for city in cities:
         response = requests.get(url.format(city.name)).json()
@@ -22,6 +19,11 @@ def index(request):
         all_cities.append(info)
     context={'all_info':all_cities,'form':form}
     return render(request ,'weather/index.html',context)
+def create(request):
+    if request.method == "POST":
+        form = CityForm(request.POST)
+        form.save()
+    return HttpResponseRedirect("/")
 def delete(request, name):
     try:
         city = City.objects.get(name=name)
