@@ -1,4 +1,4 @@
-psycopg2==2.8.5
+psycopg2-binary==2.8.5
 aiohttp==3.6.2
 amqp==2.5.2
 asgiref==3.2.7
