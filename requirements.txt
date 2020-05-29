@@ -1,3 +1,4 @@
+psycopg2==2.8.5
 aiohttp==3.6.2
 amqp==2.5.2
 asgiref==3.2.7
@@ -102,4 +103,3 @@ Werkzeug==1.0.1
 whitenoise==5.1.0
 win32-setctime==1.0.1
 yarl==1.4.2
-psycopg2==2.6.2
