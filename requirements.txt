@@ -1,4 +1,4 @@
-
+psycopg2==2.6.1
 aiohttp==3.6.2
 amqp==2.5.2
 asgiref==3.2.7
